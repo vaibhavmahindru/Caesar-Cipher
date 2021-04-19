@@ -3,11 +3,12 @@ import java.util.*;
 
 public class main{
 
+    //encryption function
     public static StringBuffer encrypt(String text, int shift){
         StringBuffer ciphered= new StringBuffer();
         for(int i = 0; i<text.length(); i++){
             if(Character.isUpperCase(text.charAt(i))){
-                char c = (char)(((int)text.charAt(i)+shift-65)%26+65);
+                char c = (char)(((int)text.charAt(i)+shift-65)%26+65);//
                 ciphered.append(c);
             }
             else if(Character.isLowerCase(text.charAt(i))){
@@ -15,32 +16,37 @@ public class main{
                 ciphered.append(c);
             }
             else{
-                ciphered.append(text.charAt(i))
+                ciphered.append(text.charAt(i));
             }
         }
         return ciphered;
     }
+
+    //decryption function
     public static StringBuffer decrypt(String text, int shift){
-        StringBuffer ciphered= new StringBuffer();
+        StringBuffer deciphered= new StringBuffer();
         for(int i = 0; i<text.length(); i++){
             if(Character.isUpperCase(text.charAt(i))){
                 char c = (char)(90 - (90 - (int)text.charAt(i)+shift)%26);
-                ciphered.append(c);
+                deciphered.append(c);
             }
             else if(Character.isLowerCase(text.charAt(i))){
                 char c = (char)(122 - ( 122 - (int)text.charAt(i)+shift)%26);
-                ciphered.append(c);
+                deciphered.append(c);
             }
             else{
-                ciphered.append(text.charAt(i))
+                deciphered.append(text.charAt(i));
             }
         }
         return deciphered;
     }
+
+    //driver code 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Choose 1 for encryption\nChoose 2 for decryption");
-        int option = n.nextInt();
+        //to choose the option
+        int option = in.nextInt();
         
         System.out.println("Enter the string :-");
         String text = in.nextLine();
@@ -58,6 +64,6 @@ public class main{
               System.out.println("Wrong option");
           }
         
-        in.close()
+        in.close();
     }
 }
